@@ -16,7 +16,7 @@ public class ScoresTest {
     }
 
     @Test public void ScoreChar(){
-        Scores sc = new Scores("1 2 3 4 5 A 6 7 8 9");
+        Scores sc = new Scores("1 2 A 3 4 5 6 7 8 9");
         assertThrows(IllegalArgumentException.class, ()->{});
     }
 
