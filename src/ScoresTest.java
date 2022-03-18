@@ -16,25 +16,29 @@ public class ScoresTest {
     }
 
     @Test public void ScoreChar(){
-        Scores sc = new Scores("1 2 A 3 4 5 6 7 8 9");
-        assertThrows(IllegalArgumentException.class, ()->{});
+        assertThrows(IllegalArgumentException.class, ()->{
+            Scores sc = new Scores("1 2 A 3 4 5 6 7 8 9");
+        });
     }
 
     @Test public void emptyCTOR(){
-        Scores sc = new Scores(null);
-        assertThrows(IllegalArgumentException.class, ()->{});
+        assertThrows(IllegalArgumentException.class, ()->{
+            Scores sc = new Scores(null);
+        });
     }
 
     @Test public void tooBig(){
-        Scores sc = new Scores("99999999999999999999999999999999999999");
-        assertThrows(IllegalArgumentException.class, ()->{});
+        assertThrows(IllegalArgumentException.class, ()->{
+            Scores sc = new Scores("99999999999999999999999999999999999999");
+        });
     }
 
     @Test public void noScores(){
         Scores sc = new Scores("");
         assertEquals(0,sc.getNumScores());
-        sc.get(0);
-        assertThrows(IndexOutOfBoundsException.class, ()->{});
+        assertThrows(IndexOutOfBoundsException.class, ()->{
+            sc.get(0);
+        });
     }
 
 
