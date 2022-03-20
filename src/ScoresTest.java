@@ -9,19 +9,29 @@ public class ScoresTest {
      * Constructor tests using numScores() and get()
      *
      */
+
+    /**
+     * test the scores constructor, without any nonsense
+     */
     @Test public void ScoreCTOR(){
         //test that the constructor can take actual whitespace-delimited integers
         Scores sc = new Scores("1 2 3 4 5 6 7 8 9");
         assertEquals(9,sc.getNumScores());
     }
 
+    /**
+     * test the score CTOR with a char thrown in the string
+     */
     @Test public void ScoreChar(){
         //test what happens when a char is put in there
         assertThrows(IllegalArgumentException.class, ()->{
-            Scores sc = new Scores("1 2 A 3 4 5 6 7 8 9");
+            Scores sc = new Scores("1 2 X 3 4 5 6 7 8 9");
         });
     }
 
+    /**
+     * test a CTOR with a null input
+     */
     @Test public void emptyCTOR(){
         //test a null constructor
         assertThrows(IllegalArgumentException.class, ()->{
@@ -29,6 +39,9 @@ public class ScoresTest {
         });
     }
 
+    /**
+     * test a CTOR with too big of a number to be an int
+     */
     @Test public void tooBig(){
         //test not an int
         assertThrows(IllegalArgumentException.class, ()->{
@@ -36,10 +49,20 @@ public class ScoresTest {
         });
     }
 
+    /**
+     * test a CTOR with an empty string
+     */
     @Test public void noScores(){
         //test an empty string
         Scores sc = new Scores("");
         assertEquals(0,sc.getNumScores());
+    }
+
+    /**
+     * .gets an index out of bounds for an empty CTOR
+     */
+    @Test public void OOB(){
+        Scores sc = new Scores("");
         //get an IndexOutOfBounds
         assertThrows(IndexOutOfBoundsException.class, ()->{
             sc.get(0);
@@ -52,5 +75,5 @@ public class ScoresTest {
     /*
      * getMax() tests
      */
-    
+
 }
