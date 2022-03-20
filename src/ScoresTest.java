@@ -1,6 +1,9 @@
 //import java.util.NoSuchElementException;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -12,7 +15,7 @@ public class ScoresTest {
      */
 
     /**
-     * @author Ian Armour
+     * @author ArmourIT21
      * test the score constructor with integers 1 through 9
      */
     @Test public void ScoreCTOR(){
@@ -21,7 +24,7 @@ public class ScoresTest {
         assertEquals(9,sc.getNumScores());
     }
     /**
-     * @author Ian Armour
+     * @author ArmourIT21
      * tests the score constructor with two digit inputs
      */
     @Test public void overTen(){
@@ -30,7 +33,7 @@ public class ScoresTest {
     }
 
     /**
-     * @author Ian Armour
+     * @author ArmourIT21
      * tests the score cunstructor with negative ints 1-9
      */
     @Test public void negInt(){
@@ -39,7 +42,7 @@ public class ScoresTest {
     }
 
     /**
-     * @author Ian Armour
+     * @author ArmourIT21
      * test the score CTOR with a char thrown in the string
      */
     @Test public void ScoreChar(){
@@ -49,7 +52,7 @@ public class ScoresTest {
     }
 
     /**
-     * @author Ian Armour
+     * @author ArmourIT21
      * test a CTOR with a null input
      */
     @Test public void emptyCTOR(){
@@ -59,7 +62,7 @@ public class ScoresTest {
     }
 
     /**
-     * @author Ian Armour
+     * @author ArmourIT21
      * test a CTOR with too big of a number to be an int
      */
     @Test public void tooBig(){
@@ -69,7 +72,7 @@ public class ScoresTest {
     }
 
     /**
-     * @author Ian Armour
+     * @author ArmourIT21
      * test a CTOR with an empty string
      */
     @Test public void noScores(){
@@ -79,7 +82,7 @@ public class ScoresTest {
     }
 
     /**
-     * @author Ian Armour
+     * @author ArmourIT21
      * .gets an index out of bounds for an empty CTOR
      */
     @Test public void OOB(){
@@ -90,15 +93,12 @@ public class ScoresTest {
     }
 
 
-
-
-
     /*
      * getMax() tests
      */
 
     /**
-     * @author Ian Armour
+     * @author ArmourIT21
      * tests a standard getMax with numbers 1 through 9
      */
     @Test public void getMax(){
@@ -107,5 +107,22 @@ public class ScoresTest {
         assertEquals(9, sc.getMax());
     }
 
+    /**
+     * @author ArmourIT21
+     * tests a getMax but with negative numbers 1 through 9
+     */
+    @Test public void getNeg(){
+        sc = new Scores("-9 -8 -7 -6 -5 -4 -3 -2 -1");
+        assertEquals(-1,sc.getMax());
+    }
 
+    /**
+     * @author ArmourIT21
+     * tests getmax on an empty scores
+     */
+    @Test public void getEmpty(){
+        sc = new Scores("");
+        assertThrows(NoSuchElementException.class, ()->
+                sc.getMax());
+    }
 }
