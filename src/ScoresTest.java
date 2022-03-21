@@ -91,7 +91,14 @@ public class ScoresTest {
         assertThrows(IndexOutOfBoundsException.class, ()->
                 sc.get(0));
     }
-
+    /**
+     * @author REYNOLDSTM18
+     * tests get with an invalid index
+     */
+    @Test public void wrongIndex(){
+        sc = new Scores("1 2 3 4 5 6 7 8 9");
+        assertThrows(IndexOutOfBoundsException.class, ()-> sc.get(9));
+    }
 
     /*
      * getMax() tests
@@ -134,12 +141,5 @@ public class ScoresTest {
         assertEquals(1,sc.getMax());
     }
 
-    /**
-     * @author REYNOLDSTM18
-     * tests get with an invalid index
-     */
-    @Test public void wrongIndex(){
-        sc = new Scores("1 2 3 4 5 6 7 8 9");
-        assertThrows(IndexOutOfBoundsException.class, ()-> sc.get(9));
-    }
+
 }
