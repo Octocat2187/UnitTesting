@@ -133,4 +133,13 @@ public class ScoresTest {
         sc = new Scores("1 1 1 1 1 1 1 1 1 1 1 1 ");
         assertEquals(1,sc.getMax());
     }
+
+    /**
+     * @author REYNOLDSTM18
+     * tests get with an invalid index
+     */
+    @Test public void wrongIndex(){
+        sc = new Scores("1 2 3 4 5 6 7 8 9");
+        assertThrows(IndexOutOfBoundsException.class, ()-> sc.get(9));
+    }
 }
